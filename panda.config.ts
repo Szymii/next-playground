@@ -15,6 +15,12 @@ export default defineConfig({
     extend: {},
   },
 
+  globalCss: {
+    "html, body": {
+      color: "gray.50",
+    },
+  },
+
   // The output directory for your css system
   outdir: "styled-system",
 

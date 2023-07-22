@@ -1,3 +1,5 @@
+import { styled } from "panda/jsx";
+
 import "./global.css";
 
 export const metadata = {
@@ -12,7 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <styled.body bgColor={"gray.900"}>{children}</styled.body>
     </html>
   );
 }
