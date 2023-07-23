@@ -1,4 +1,5 @@
 import { styled } from "panda/jsx";
+import { Navigation } from "src/components/Navigation";
 
 import "./global.css";
 
@@ -14,7 +15,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <styled.body bgColor={"gray.900"}>{children}</styled.body>
+      <styled.body bgColor={"gray.900"}>
+        <Navigation />
+        {children}
+      </styled.body>
     </html>
   );
 }
