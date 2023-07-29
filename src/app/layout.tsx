@@ -1,6 +1,6 @@
 import { styled } from "panda/jsx";
+import { Navigation } from "src/components/Navigation";
 
-import { Navigation } from "./components/Navigation";
 import "./global.css";
 
 export const metadata = {

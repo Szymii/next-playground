@@ -6,7 +6,7 @@ import { useRef } from "react";
 import { TextField } from "src/components/TextField";
 
 import { saveData } from "./actions";
-import { SaveFormBtn } from "./components/SaveFormBtn";
+import { SaveFormBtn } from "src/components/SaveFormBtn";
 
 export default function Home() {
   const router = useRouter();

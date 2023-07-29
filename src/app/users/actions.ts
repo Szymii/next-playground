@@ -4,7 +4,7 @@ import fs from "fs/promises";
 import { revalidatePath } from "next/cache";
 import { delay } from "src/helpers/delay";
 
-type Users = {
+type User = {
   id: string;
   name: string;
   alias: string;
@@ -19,7 +19,7 @@ export async function removeUser(id: string) {
     const rows = rowData.split("\n");
     const nonEmptyRows = rows.filter((row) => row.trim() !== "");
 
-    const arrayOfObjects: Users[] = nonEmptyRows.map((row) => JSON.parse(row));
+    const arrayOfObjects: User[] = nonEmptyRows.map((row) => JSON.parse(row));
     const lineToDelete = arrayOfObjects.findIndex((user) => user.id === id);
 
     // @ts-ignore toSpliced exists on node 20 - don't know why typescript cant see it
@@ -34,7 +34,7 @@ export async function removeUser(id: string) {
   }
 }
 
-export async function getUsers(): Promise<Users[]> {
+export async function getUsers(): Promise<User[]> {
   const rowData = await fs.readFile(`${process.env.DB_PATH}/db.txt`, {
     encoding: "utf-8",
   });
