@@ -1,7 +1,6 @@
 "use server";
 
 import fs from "fs/promises";
-import { revalidatePath } from "next/cache";
 import { delay } from "src/helpers/delay";
 import { generateId } from "src/helpers/generateId";
 
@@ -19,7 +18,4 @@ export async function saveData(data: FormData) {
   );
 
   await delay(2000);
-
-  revalidatePath("/");
-  revalidatePath("/users");
 }
