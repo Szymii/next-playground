@@ -1,27 +1,7 @@
-import fs from "fs/promises";
-import { revalidatePath } from "next/cache";
 import { Container, HStack, VStack } from "panda/jsx";
 
 import { RemoveButton } from "./RemoveButton";
-
-type Users = {
-  id: string;
-  name: string;
-  alias: string;
-};
-
-async function getUsers(): Promise<Users[]> {
-  const rowData = await fs.readFile(`${process.env.DB_PATH}/db.txt`, {
-    encoding: "utf-8",
-  });
-
-  const rows = rowData.split("\n");
-  const nonEmptyRows = rows.filter((row) => row.trim() !== "");
-
-  const arrayOfObjects = nonEmptyRows.map((row) => JSON.parse(row));
-
-  return arrayOfObjects;
-}
+import { getUsers } from "./actions";
 
 export default async function Page() {
   const data = await getUsers();
@@ -29,7 +9,7 @@ export default async function Page() {
   return (
     <main>
       <Container p={8} maxW="3xl" mt={6}>
-        <VStack alignItems={"space"}>
+        <VStack>
           {data.map((user, i) => {
             return (
               <HStack

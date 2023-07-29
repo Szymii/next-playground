@@ -18,6 +18,10 @@ const butonStyles = cva({
         _hover: {
           bg: "gray.700",
         },
+        _disabled: {
+          bg: "gray.700",
+          cursor: "not-allowed",
+        },
       },
       ghost: {
         bg: "transparent",
@@ -26,6 +30,10 @@ const butonStyles = cva({
         transition: "all 0.3s",
         _hover: {
           bg: "gray.800",
+        },
+        _disabled: {
+          bg: "gray.800",
+          cursor: "not-allowed",
         },
       },
     },

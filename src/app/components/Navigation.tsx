@@ -3,11 +3,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Container, HStack, styled } from "panda/jsx";
-import { useTransition } from "react";
 
 export const Navigation = () => {
   const pathname = usePathname();
-  const [isPending, startTransition] = useTransition();
 
   return (
     <Container p={8} maxW="3xl">

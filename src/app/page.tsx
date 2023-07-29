@@ -1,13 +1,15 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { Container, VStack, styled } from "panda/jsx";
 import { useRef } from "react";
 import { TextField } from "src/components/TextField";
-import { Button } from "src/recipes/button";
 
-import { saveData } from "./saveAction";
+import { saveData } from "./actions";
+import { SaveFormBtn } from "./components/SaveFormBtn";
 
 export default function Home() {
+  const router = useRouter();
   const formRef = useRef<HTMLFormElement>(null);
 
   return (
@@ -17,6 +19,7 @@ export default function Home() {
           action={async (data) => {
             try {
               await saveData(data);
+              router.refresh();
               formRef.current?.reset();
             } catch {
               //
@@ -27,9 +30,7 @@ export default function Home() {
           <VStack gap={6}>
             <TextField label="Name" name="name" required />
             <TextField label="Alias" name="alias" required />
-            <Button variant="ghost" w="md" type="submit">
-              Save in DB
-            </Button>
+            <SaveFormBtn label="Save in DB" />
           </VStack>
         </form>
       </Container>

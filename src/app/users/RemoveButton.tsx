@@ -3,7 +3,7 @@
 import { useTransition } from "react";
 import { Button } from "src/recipes/button";
 
-import { removeUser } from "./removeAction";
+import { removeUser } from "./actions";
 
 export const RemoveButton = ({ id }: { id: string }) => {
   const [isPending, startTransition] = useTransition();

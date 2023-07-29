@@ -12,7 +12,13 @@ export const TextField = ({ label, name, required }: IProps) => {
     <label>
       <VStack alignItems={"start"} gap={2}>
         <span>{label}</span>
-        <Input type="text" variant="outline" minW={"md"} name={name} required />
+        <Input
+          type="text"
+          variant="outline"
+          minW={"md"}
+          name={name}
+          required={required}
+        />
       </VStack>
     </label>
   );
